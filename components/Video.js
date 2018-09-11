@@ -352,7 +352,8 @@ class Video extends Component {
       onMorePress,
       inlineOnly,
       playInBackground,
-      playWhenInactive
+      playWhenInactive,
+      ...videoPlayerProps
     } = this.props
 
     const inline = {
@@ -400,6 +401,7 @@ class Video extends Component {
           onError={e => this.onError(e)}
           // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
+          {...videoPlayerProps}
         />
         <Controls
           ref={(ref) => { this.controls = ref }}
