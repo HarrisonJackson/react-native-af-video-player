@@ -382,6 +382,7 @@ class Video extends Component {
           <Image resizeMode="cover" style={styles.image} {...checkSource(placeholder)} />
         }
         <VideoPlayer
+          {...videoPlayerProps}
           {...checkSource(url)}
           paused={paused}
           resizeMode={resizeMode}
@@ -401,7 +402,6 @@ class Video extends Component {
           onError={e => this.onError(e)}
           // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
-          {...videoPlayerProps}
         />
         <Controls
           ref={(ref) => { this.controls = ref }}
